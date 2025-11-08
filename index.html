@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Registro de Atendimento - GOL Linhas Aéreas</title>
+  <link rel="icon" href="imagem/icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="imagem/aviao.png" alt="Logo GOL">
+    <h1>Registro de Atendimento - GOL Linhas Aéreas</h1>
+  </header>
+
+  <div class="container">
+    <div class="form">
+      <label>Ticket</label>
+      <input type="text" id="ticket">
+
+      <label>Número</label>
+      <input type="text" id="numero">
+
+      <label>PNR (Localizador)</label>
+      <input type="text" id="localizador">
+
+      <label>Resumo (máx 198 caracteres)</label>
+      <textarea id="resumo" maxlength="198"></textarea>
+
+      <label>Utilizou Waive?</label>
+      <select id="waive">
+        <option>Não</option>
+        <option>Sim</option>
+      </select>
+
+      <div id="wave-detalhe">
+        <label>Qual o Motivo da Ultilização?</label>
+        <select id="tipoWaive">
+          <option value="">Selecione...</option>
+          <option>Erro sistêmico</option>
+          <option>Cliente smiles categorizado cobrando assento</option>
+          <option>Regra tarifária possuem bagagem mas em VCR não conta</option>
+          <option>Cancelamento dentro das 24hrs</option>
+          <option>Cancelamento de serviço</option>
+          <option>Remarcação laudo médico</option>
+          <option>Cancelamento laudo médico</option>
+          <option>Remarcação concurso público</option>
+          <option>Cancelamento concurso público</option>
+          <option>Duplicidade de compra</option>
+          <option>Remarcação erro do cliente dentro das 24hrs</option>
+          <option>Cancelamento por acomodação</option>
+          <option>Intenção de assento por acomodação</option>
+          <option>Intenção de assento para menos de 16 anos</option>
+        </select>
+      </div>
+
+      <div id="waiveBox"></div>
+
+      <label>Isentou taxa DU?</label>
+      <select id="du">
+        <option>Não</option>
+        <option>Sim</option>
+      </select>
+
+      <label>Utilizou link de pagamento?</label>
+      <select id="link">
+        <option>Não se aplica</option>
+        <option>Sim</option>
+        <option>Não</option>
+      </select>
+
+      <label>Assinatura</label>
+      <input type="text" id="assinatura">
+
+      <div style="text-align:center;">
+        <button id="gerar">Gerar Resultado</button>
+        <button id="limpar">Limpar</button>
+      </div>
+    </div>
+
+    <div class="resultado">
+      <h2>Resultado</h2>
+      <textarea id="resultado" readonly></textarea>
+      <button id="copyButton">📋 Copiar Resultado</button>
+    </div>
+  </div>
+
+  <footer>© 2025 Criado por Daniel Fernandes / Maria Vitória — Sistema Interno de Atendimento</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
