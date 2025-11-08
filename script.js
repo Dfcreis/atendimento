@@ -61,6 +61,7 @@ document.getElementById("gerar").onclick = function() {
   const resumoFormatado = quebrarEm33(resumo);
   const waiverText = waiverMap[tipo] ? waiverMap[tipo] : "";
 
+  // Monta o texto do resultado
   let texto = 
 `🗣Resumo do cliente
 ${resumoFormatado}
@@ -75,8 +76,7 @@ DADOS DO CLIENTE
 Ticket - ${ticket}
 Utilizou waiver - ${waive}${waive === "Sim" && tipo ? `
 Qual waive - ${waiverText}
-Motivo - ${tipo}` : `
-Motivo - ${resumoFormatado}`}`;
+Motivo - ${tipo}` : ""}`; // <-- Motivo só aparece se houver waive
 
   document.getElementById("resultado").value = texto;
   document.getElementById("copyButton").style.display = "block";
