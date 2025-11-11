@@ -1,3 +1,5 @@
+
+
 function quebrarEm56(texto) {
   texto = texto.replace(/\r?\n/g, " ");
   let resultado = "";
@@ -82,6 +84,7 @@ Motivo - ${tipo}` : ""}`; // <-- Motivo só aparece se houver waive
   document.getElementById("copyButton").style.display = "block";
 };
 
+/* copiar */
 document.getElementById("copyButton").onclick = function() {
   const resultText = document.getElementById("resultado").value;
   navigator.clipboard.writeText(resultText);
@@ -89,6 +92,7 @@ document.getElementById("copyButton").onclick = function() {
   setTimeout(() => this.textContent = "📋 Copiar Resultado", 2000);
 };
 
+/* limpar */
 document.getElementById("limpar").onclick = function() {
   document.querySelectorAll("input, textarea").forEach(el => el.value = "");
   document.querySelectorAll("select").forEach(el => el.selectedIndex = 0);
@@ -97,3 +101,27 @@ document.getElementById("limpar").onclick = function() {
   waiveBox.style.display = "none";
   document.getElementById("copyButton").style.display = "none";
 };
+
+/* ----- Melhoria UX: contador de caracteres do resumo ----- */
+const resumoEl = document.getElementById("resumo");
+const restanteEl = document.getElementById("caracteresRestantes");
+resumoEl.addEventListener("input", () => {
+  const left = 336 - resumoEl.value.length;
+  restanteEl.textContent = `${left} caracteres restantes`;
+});
+
+/* ----- Menu lateral toggle + navegação visual (simples) ----- */
+const toggleSidebar = document.getElementById("toggleSidebar");
+const sidebar = document.getElementById("sidebar");
+toggleSidebar && toggleSidebar.addEventListener("click", () => {
+  sidebar.classList.toggle("collapsed");
+});
+
+/* Navegação simples entre seções (apenas visual, não altera form) */
+document.querySelectorAll(".nav-item").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+    btn.classList.add("active");
+    // Se quisermos mostrar/ocultar seções diferentes futuramente, fazemos aqui.
+  });
+});

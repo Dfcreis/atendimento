@@ -1,91 +1,169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Registro de Atendimento - GOL Linhas Aéreas</title>
-  <link rel="icon" href="imagem/icon.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registro de Atendimento Aéreo</title>
+  <link rel="icon" href="imagem/icon.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <img src="imagem/aviao.png" alt="Logo GOL">
-    <h1>Registro de Atendimento - GOL Linhas Aéreas</h1>
-  </header>
-
-  <div class="container">
-    <div class="form">
-      <label>Ticket</label>
-      <input type="text" id="ticket">
-
-      <label>Número</label>
-      <input type="text" id="numero">
-
-      <label>PNR (Localizador)</label>
-      <input type="text" id="localizador">
-
-      <label>Resumo (máx 336 caracteres)</label>
-      <textarea id="resumo" maxlength="336"></textarea>
-
-      <label>Utilizou Waive?</label>
-      <select id="waive">
-        <option>Não</option>
-        <option>Sim</option>
-      </select>
-
-      <div id="wave-detalhe">
-        <label>Qual o Motivo da Ultilização?</label>
-        <select id="tipoWaive">
-          <option value="">Selecione...</option>
-          <option>Erro sistêmico</option>
-          <option>Cliente smiles categorizado cobrando assento</option>
-          <option>Regra tarifária possuem bagagem mas em VCR não conta</option>
-          <option>Cancelamento dentro das 24hrs</option>
-          <option>Cancelamento de serviço</option>
-          <option>Remarcação laudo médico</option>
-          <option>Cancelamento laudo médico</option>
-          <option>Remarcação concurso público</option>
-          <option>Cancelamento concurso público</option>
-          <option>Duplicidade de compra</option>
-          <option>Remarcação erro do cliente dentro das 24hrs</option>
-          <option>Cancelamento por acomodação</option>
-          <option>Intenção de assento por acomodação</option>
-          <option>Intenção de assento para menos de 16 anos</option>
-        </select>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img src="imagem/aviao.png" alt="Logo" class="brand-logo" />
+        <div class="brand-text">
+          <strong>AirHelpDesk</strong>
+          <small>Sistema Interno</small>
+        </div>
       </div>
 
-      <div id="waiveBox"></div>
+      <nav class="nav">
+        <button class="nav-item active" data-section="registro">
+          <span class="icon">🕵🏽‍♂️</span>
+          <span class="label">Objeto Esquecido</span>
+        </button>
+        <button class="nav-item" data-section="historico">
+          <span class="icon">📜</span>
+          <span class="label">Laudo Medico</span>
+        </button>
+        <button class="nav-item" data-section="config">
+          <span class="icon">👩🏽‍💻</span>
+          <span class="label">Supervisão</span>
+        </button>
+      </nav>
 
-      <label>Isentou taxa DU?</label>
-      <select id="du">
-        <option>Não</option>
-        <option>Sim</option>
-      </select>
-
-      <label>Utilizou link de pagamento?</label>
-      <select id="link">
-        <option>Não se aplica</option>
-        <option>Sim</option>
-        <option>Não</option>
-      </select>
-
-      <label>Assinatura</label>
-      <input type="text" id="assinatura">
-
-      <div style="text-align:center;">
-        <button id="gerar">Gerar Resultado</button>
-        <button id="limpar">Limpar</button>
+      <div class="sidebar-footer">
+        <small>© 2025 Daniel F.</small>
       </div>
-    </div>
+    </aside>
 
-    <div class="resultado">
-      <h2>Resultado</h2>
-      <textarea id="resultado" readonly></textarea>
-      <button id="copyButton">📋 Copiar Resultado</button>
-    </div>
+    <!-- MAIN -->
+    <main class="main">
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <button id="toggleSidebar" class="hamburger" aria-label="Abrir menu">☰</button>
+        <h1>Registro de Atendimento</h1>
+        <div class="topbar-actions">
+          <div class="user">
+            <span class="dot"></span>
+            <div class="user-info">
+              <div class="name">Atendimento Sac 0800</div>
+              <div class="role">Atendente</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <section class="content">
+        <div class="grid">
+          <!-- FORM CARD -->
+          <section class="card form-card" id="registro">
+            <h2>Novo Registro</h2>
+
+            <div class="form-row">
+              <label for="ticket">Ticket</label>
+              <input type="text" id="ticket" />
+            </div>
+
+            <div class="form-row">
+              <label for="numero">Número</label>
+              <input type="text" id="numero" />
+            </div>
+
+            <div class="form-row">
+              <label for="localizador">PNR (Localizador)</label>
+              <input type="text" id="localizador" />
+            </div>
+
+            <div class="form-row">
+              <label for="resumo">Resumo (máx 336 caracteres)</label>
+              <textarea id="resumo" maxlength="336" rows="4"></textarea>
+              <div class="meta">
+                <small id="caracteresRestantes">336 caracteres restantes</small>
+                <small class="hint">O resumo será quebrado em linhas de 56 caracteres.</small>
+              </div>
+            </div>
+
+            <div class="form-row split">
+              <div>
+                <label for="waive">Utilizou Waive?</label>
+                <select id="waive">
+                  <option>Não</option>
+                  <option>Sim</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="du">Isentou taxa DU?</label>
+                <select id="du">
+                  <option>Não</option>
+                  <option>Sim</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="wave-detalhe" class="form-row detail" style="display:none;">
+              <label for="tipoWaive">Qual o Motivo da Ultilização?</label>
+              <select id="tipoWaive">
+                <option value="">Selecione...</option>
+                <option>Erro sistêmico</option>
+                <option>Cliente smiles categorizado cobrando assento</option>
+                <option>Regra tarifária possuem bagagem mas em VCR não conta</option>
+                <option>Cancelamento dentro das 24hrs</option>
+                <option>Cancelamento de serviço</option>
+                <option>Remarcação laudo médico</option>
+                <option>Cancelamento laudo médico</option>
+                <option>Remarcação concurso público</option>
+                <option>Cancelamento concurso público</option>
+                <option>Duplicidade de compra</option>
+                <option>Remarcação erro do cliente dentro das 24hrs</option>
+                <option>Cancelamento por acomodação</option>
+                <option>Intenção de assento por acomodação</option>
+                <option>Intenção de assento para menos de 16 anos</option>
+              </select>
+            </div>
+
+            <div id="waiveBox" class="waive-box" style="display:none;"></div>
+
+            <div class="form-row">
+              <label for="link">Utilizou link de pagamento?</label>
+              <select id="link">
+                <option>Não se aplica</option>
+                <option>Sim</option>
+                <option>Não</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="assinatura">Assinatura</label>
+              <input type="text" id="assinatura" />
+            </div>
+
+            <div class="actions">
+              <button id="gerar" class="btn-primary">Gerar Resultado</button>
+              <button id="limpar" class="btn-ghost">Limpar</button>
+            </div>
+          </section>
+
+          <!-- RESULT CARD -->
+          <aside class="card result-card">
+            <h2>Resultado</h2>
+            <textarea id="resultado" readonly></textarea>
+            <button id="copyButton" class="btn-primary" style="display:none;">📋 Copiar Resultado</button>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="footer">
+        © 2025 Criado por Daniel Fernandes / Maria Vitória — Sistema Interno de Atendimento
+      </footer>
+    </main>
   </div>
-
-  <footer>© 2025 Criado por Daniel Fernandes / Maria Vitória — Sistema Interno de Atendimento</footer>
 
   <script src="script.js"></script>
 </body>
