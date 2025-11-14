@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Registro de Atendimento Aéreo</title>
-  <link rel="icon" href="imagem/icon.png" />
+  <title>Registro de Atendimento Aére</title>
+  <link rel="icon" href="../imagem/icon.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
+
     <!-- SIDEBAR -->
     <aside class="sidebar" id="sidebar">
       <div class="brand">
-        <img src="imagem/aviao.png" alt="Logo" class="brand-logo" />
+        <img src="../imagem/aviao.png" alt="Logo" class="brand-logo" />
         <div class="brand-text">
           <strong>AirHelpDesk</strong>
           <small>Sistema Interno</small>
@@ -34,6 +35,15 @@
           <span class="icon">👩🏽‍💻</span>
           <span class="label">Supervisão</span>
         </button>
+
+        <button class="nav-item" data-link="https://site-do-treinamento.com">
+          <span class="icon">🧳</span>
+          <span class="label">Bagagem</span>
+        </button>
+        <button class="nav-item" data-link="https://site-da-avaliacao.com">
+          <span class="icon">📝</span>
+          <span class="label">Sugestão de Atendimento</span>
+        </button>
       </nav>
 
       <div class="sidebar-footer">
@@ -43,11 +53,22 @@
 
     <!-- MAIN -->
     <main class="main">
+
       <!-- TOPBAR -->
       <header class="topbar">
+
+        <!-- BOTÃO VOLTAR -->
+        <a href="../home/index.html"><button id="btnVoltar" class="btn-voltar">⬅ Voltar</button></a>
+
         <button id="toggleSidebar" class="hamburger" aria-label="Abrir menu">☰</button>
+
         <h1>Registro de Atendimento</h1>
+
         <div class="topbar-actions">
+
+          <!-- BOTÃO TEMA -->
+          <button id="btnTema" class="btn-tema">🌙 Tema</button>
+
           <div class="user">
             <span class="dot"></span>
             <div class="user-info">
@@ -61,6 +82,7 @@
       <!-- CONTENT -->
       <section class="content">
         <div class="grid">
+
           <!-- FORM CARD -->
           <section class="card form-card" id="registro">
             <h2>Novo Registro</h2>

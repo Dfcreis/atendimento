@@ -1,5 +1,3 @@
-
-
 function quebrarEm56(texto) {
   texto = texto.replace(/\r?\n/g, " ");
   let resultado = "";
@@ -63,7 +61,6 @@ document.getElementById("gerar").onclick = function() {
   const resumoFormatado = quebrarEm56(resumo);
   const waiverText = waiverMap[tipo] ? waiverMap[tipo] : "";
 
-  // Monta o texto do resultado
   let texto = 
 `🗣Resumo do cliente
 ${resumoFormatado}
@@ -76,15 +73,14 @@ DADOS DO CLIENTE
 
 -------------------------------------------------
 Ticket - ${ticket}
-Utilizou waiver - ${waive}${waive === "Sim" && tipo ? `
+Utilizou waiver - ${waive}${waive === "Sim" && tipo ? ` 
 Qual waive - ${waiverText}
-Motivo - ${tipo}` : ""}`; // <-- Motivo só aparece se houver waive
+Motivo - ${tipo}` : ""}`;
 
   document.getElementById("resultado").value = texto;
   document.getElementById("copyButton").style.display = "block";
 };
 
-/* copiar */
 document.getElementById("copyButton").onclick = function() {
   const resultText = document.getElementById("resultado").value;
   navigator.clipboard.writeText(resultText);
@@ -92,7 +88,6 @@ document.getElementById("copyButton").onclick = function() {
   setTimeout(() => this.textContent = "📋 Copiar Resultado", 2000);
 };
 
-/* limpar */
 document.getElementById("limpar").onclick = function() {
   document.querySelectorAll("input, textarea").forEach(el => el.value = "");
   document.querySelectorAll("select").forEach(el => el.selectedIndex = 0);
@@ -102,7 +97,6 @@ document.getElementById("limpar").onclick = function() {
   document.getElementById("copyButton").style.display = "none";
 };
 
-/* ----- Melhoria UX: contador de caracteres do resumo ----- */
 const resumoEl = document.getElementById("resumo");
 const restanteEl = document.getElementById("caracteresRestantes");
 resumoEl.addEventListener("input", () => {
@@ -110,18 +104,39 @@ resumoEl.addEventListener("input", () => {
   restanteEl.textContent = `${left} caracteres restantes`;
 });
 
-/* ----- Menu lateral toggle + navegação visual (simples) ----- */
 const toggleSidebar = document.getElementById("toggleSidebar");
 const sidebar = document.getElementById("sidebar");
 toggleSidebar && toggleSidebar.addEventListener("click", () => {
   sidebar.classList.toggle("collapsed");
 });
 
-/* Navegação simples entre seções (apenas visual, não altera form) */
-document.querySelectorAll(".nav-item").forEach(btn => {
+document.querySelectorAll(".nav-item[data-section]").forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
     btn.classList.add("active");
-    // Se quisermos mostrar/ocultar seções diferentes futuramente, fazemos aqui.
   });
 });
+
+// NOVAS OPÇÕES DO MENU - ABREM EM NOVA ABA
+document.querySelectorAll('.nav-item[data-link]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const url = btn.dataset.link;
+    window.open(url, '_blank');
+  });
+});
+/* === BOTÃO VOLTAR === */
+document.getElementById("btnVoltar").onclick = () => {
+  window.history.back();
+};
+
+/* === BOTÃO TEMA === */
+document.getElementById("btnTema").onclick = () => {
+  document.body.classList.toggle("light");
+
+  const tema = document.body.classList.contains("light")
+    ? "🌚 Tema"
+    : "🌙 Tema";
+
+  document.getElementById("btnTema").textContent = tema;
+};
+

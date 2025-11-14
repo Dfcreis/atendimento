@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AirHelpDesk</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="../imagem/icon.png">
+<style>
+  :root {
+    --bg-dark: #1c1c1c;
+    --bg-light: #2a2a2a;
+    --accent: #ff8a33;
+    --text-light: #ffffff;
+    --text-muted: #b0b0b0;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter',sans-serif; }
+  body { background: var(--bg-dark); color: var(--text-light); overflow-x:hidden; }
+
+  /* BOTÃO FLUTUANTE CENTRAL */
+  .btn-central {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--accent);
+    color: #fff;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(255,138,51,0.6);
+    animation: pulse 1.8s infinite ease-in-out;
+    z-index: 2000;
+  }
+
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(255,138,51,0.6); }
+    50% { transform: translate(-50%, -50%) scale(1.07); box-shadow: 0 0 30px rgba(255,138,51,0.9); }
+    100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 20px rgba(255,138,51,0.6); }
+  }
+
+  /* Hero */
+  .hero { text-align:center; margin-top:5rem; position:relative; z-index:1; }
+  .hero h1 {
+    font-size:3rem; color: var(--accent); margin-bottom:1rem;
+    opacity:0; transform: translateY(-30px); animation: fadeIn 1s forwards;
+  }
+  .hero p {
+    font-size:1.2rem; color: var(--text-muted);
+    opacity:0; transform: translateY(30px); animation: fadeIn 1s forwards 0.5s;
+  }
+
+  @keyframes fadeIn {
+    to { opacity:1; transform: translateY(0); }
+  }
+
+  /* Partículas animadas no background */
+  .particle {
+    position:absolute;
+    width:6px;
+    height:6px;
+    background: var(--accent);
+    border-radius:50%;
+    opacity:0.7;
+    animation: particleMove linear infinite;
+  }
+  @keyframes particleMove {
+    0% { transform: translateY(0) translateX(0) scale(1); opacity:0.5; }
+    50% { transform: translateY(-200px) translateX(100px) scale(1.2); opacity:1; }
+    100% { transform: translateY(0) translateX(0) scale(1); opacity:0.5; }
+  }
+
+</style>
+</head>
+<body>
+
+  <!-- BOTÃO CENTRAL -->
+  <a class="btn-central" href="../protocolo/protocolo.html">Atendimento</a>
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>AirHelpDesk</h1>
+    <p>Sistema de Atendimento Aéreo</p>
+  </div>
+
+  <!-- Partículas de fundo -->
+  <script>
+    const numParticles = 40;
+    for(let i=0; i<numParticles; i++){
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.top = Math.random()*100 + '%';
+      particle.style.left = Math.random()*100 + '%';
+      particle.style.width = (2 + Math.random()*6) + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.animationDuration = (5 + Math.random()*10) + 's';
+      particle.style.opacity = 0.3 + Math.random()*0.7;
+      document.body.appendChild(particle);
+    }
+  </script>
+
+</body>
+</html>
