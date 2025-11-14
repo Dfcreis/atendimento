@@ -1,3 +1,4 @@
+// Registrar objeto
 document.getElementById("form-objeto").addEventListener("submit", function(e){
   e.preventDefault();
 
@@ -21,4 +22,12 @@ document.getElementById("form-objeto").addEventListener("submit", function(e){
   document.getElementById("resposta").innerHTML = resposta;
 
   this.reset();
+});
+
+// Copiar resultado
+document.getElementById("btn-copiar").addEventListener("click", function(){
+  const respostaText = document.getElementById("resposta").innerText;
+  navigator.clipboard.writeText(respostaText).then(() => {
+    alert("Resultado copiado para a área de transferência!");
+  });
 });

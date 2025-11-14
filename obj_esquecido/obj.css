@@ -70,6 +70,7 @@ nav a:hover {
   padding:25px;
   border-radius: var(--radius);
   box-shadow:0 8px 25px rgba(0,0,0,0.5);
+  margin-bottom:30px;
 }
 
 .form-container {
@@ -114,7 +115,7 @@ form input::placeholder, form textarea::placeholder {
   color: var(--muted);
 }
 
-/* Botão */
+/* Botão Registrar */
 form button {
   margin-top:15px;
   width:100%;
@@ -147,6 +148,24 @@ form button:hover {
 
 #resposta p {
   margin-bottom:6px;
+}
+
+/* Botão copiar */
+#btn-copiar {
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  background: var(--accent-2);
+  color:#fff;
+  border:none;
+  border-radius: var(--radius);
+  cursor:pointer;
+  font-size:16px;
+  transition:0.2s;
+}
+
+#btn-copiar:hover {
+  background: var(--accent);
 }
 
 /* Responsivo */
