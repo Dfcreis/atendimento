@@ -1,0 +1,157 @@
+:root {
+  --bg:#0b0f14;
+  --panel:#0f1720;
+  --muted:#9aa4b2;
+  --accent:#ff8a33;
+  --accent-2:#ff5a00;
+  --text:#ffffff;
+  --radius:12px;
+}
+
+/* Reset básico */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Header */
+header {
+  background: var(--panel);
+  padding:20px;
+  text-align:center;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  margin-bottom:30px;
+  border-radius: var(--radius);
+}
+
+header h1 {
+  margin-bottom:15px;
+}
+
+nav {
+  display:flex;
+  justify-content:center;
+}
+
+nav a {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+  padding:10px 18px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition:0.2s;
+}
+
+nav a:hover {
+  background: var(--accent);
+}
+
+/* Container principal - layout lado a lado */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  gap:20px;
+  flex-wrap: wrap;
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* Containers individuais */
+.container {
+  background: var(--panel);
+  padding:25px;
+  border-radius: var(--radius);
+  box-shadow:0 8px 25px rgba(0,0,0,0.5);
+}
+
+.form-container {
+  flex:1;
+  min-width:300px;
+}
+
+.resultado-container {
+  flex:1;
+  min-width:300px;
+}
+
+/* Títulos */
+h2 {
+  text-align:center;
+  margin-bottom:20px;
+}
+
+/* Formulário */
+form label {
+  display:block;
+  margin:12px 0 5px;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  width:100%;
+  padding:10px;
+  border-radius: var(--radius);
+  border:none;
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  transition:0.2s;
+}
+
+form input:focus, form textarea:focus {
+  outline:none;
+  background: rgba(255,255,255,0.1);
+}
+
+form input::placeholder, form textarea::placeholder {
+  color: var(--muted);
+}
+
+/* Botão */
+form button {
+  margin-top:15px;
+  width:100%;
+  padding:12px;
+  background: var(--accent);
+  color:#fff;
+  border:none;
+  border-radius: var(--radius);
+  cursor:pointer;
+  font-size:16px;
+  transition:0.2s;
+}
+
+form button:hover {
+  background: var(--accent-2);
+}
+
+/* Resultado */
+#resposta {
+  padding:15px;
+  background: rgba(255,255,255,0.05);
+  border-radius:12px;
+  min-height:60px;
+}
+
+#resposta h3 {
+  color: var(--accent);
+  margin-bottom:10px;
+}
+
+#resposta p {
+  margin-bottom:6px;
+}
+
+/* Responsivo */
+@media (max-width:900px) {
+  .main-container {
+    flex-direction: column;
+  }
+}

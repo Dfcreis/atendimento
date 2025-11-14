@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objeto Esquecido</title>
+  <link rel="stylesheet" href="obj.css">
+  <script src="obj.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>Painel de Atendimento</h1>
+  <nav>
+    <a href="../protocolo/protocolo.html">Atendimento</a>
+  </nav>
+</header>
+
+<div class="main-container">
+  <div class="form-container container">
+    <h2>Registrar Objeto Esquecido</h2>
+    <form id="form-objeto">
+      <label>Nome do Cliente</label>
+      <input type="text" name="nome" placeholder="Digite o nome do cliente" required>
+
+      <label>Trecho</label>
+      <input type="text" name="trecho" placeholder="Origem - Destino" required>
+
+      <label>Dia do Voo</label>
+      <input type="date" name="dia" required>
+
+      <label>Número do Voo</label>
+      <input type="text" name="numero" placeholder="Ex: G3 1234" required>
+
+      <label>Assento</label>
+      <input type="text" name="assento" placeholder="Ex: 12A" required>
+
+      <label>Descrição Detalhada do Objeto</label>
+      <textarea name="descricao" placeholder="Descreva o objeto esquecido" rows="4" required></textarea>
+
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+
+  <div class="resultado-container container" id="resultado-container">
+    <h2>Resultado do Registro</h2>
+    <div id="resposta">Nenhum registro ainda.</div>
+  </div>
+</div>
+
+</body>
+</html>
