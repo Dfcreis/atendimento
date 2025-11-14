@@ -8,6 +8,7 @@ document.getElementById("form-objeto").addEventListener("submit", function(e){
   const numero = this.numero.value;
   const assento = this.assento.value;
   const descricao = this.descricao.value;
+  const assinatura = this.assinatura.value;
 
   const resposta = `
     <h3>Objeto Esquecido!</h3>
@@ -17,6 +18,7 @@ document.getElementById("form-objeto").addEventListener("submit", function(e){
     <p><strong>Voo- </strong> ${numero}</p>
     <p><strong>Assento- </strong> ${assento}</p>
     <p><strong>Descrição- </strong> ${descricao}</p>
+    <p><strong>Assinatura- </strong> ${assinatura}</p>
   `;
 
   document.getElementById("resposta").innerHTML = resposta;
