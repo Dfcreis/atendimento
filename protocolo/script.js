@@ -78,6 +78,9 @@ document.getElementById("gerar").onclick = function() {
   const resumoFormatado = quebrarEm56(resumo);
   const waiverText = waiverMap[tipo] ? waiverMap[tipo] : "";
 
+  const link = document.getElementById("link").value;
+  const motivoLink = document.getElementById("motivoLink").value.trim();
+
   let texto = 
 `🗣Resumo do cliente
 ${resumoFormatado}
@@ -92,11 +95,17 @@ DADOS DO CLIENTE
 Ticket - ${ticket}
 Utilizou waiver - ${waive}${waive === "Sim" && tipo ? ` 
 Qual waive - ${waiverText}
-Motivo - ${tipo}` : ""}`;
+Motivo - ${tipo}` : ""}
+
+Utilizou link - ${link}${link === "Não" ? `
+
+❌ Motivo de não utilizar o link  
+${motivoLink}` : ""}`;
 
   document.getElementById("resultado").value = texto;
   document.getElementById("copyButton").style.display = "block";
 };
+
 
 document.getElementById("copyButton").onclick = function() {
   const resultText = document.getElementById("resultado").value;
