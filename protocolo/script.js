@@ -18,6 +18,23 @@ const waveDetalheDiv = document.getElementById("wave-detalhe");
 const tipoWaive = document.getElementById("tipoWaive");
 const waiveBox = document.getElementById("waiveBox");
 
+  const selectLink = document.getElementById("link");
+  const motivoLinkContainer = document.getElementById("motivoLinkContainer");
+
+  selectLink.addEventListener("change", () => {
+    if (selectLink.value === "Não") {
+      motivoLinkContainer.style.display = "block";
+    } else {
+      motivoLinkContainer.style.display = "none";
+    }
+  });
+
+
+
+
+
+
+
 const waiverMap = {
   "Erro sistêmico": "waiver 1",
   "Cliente smiles categorizado cobrando assento": "waiver 1",

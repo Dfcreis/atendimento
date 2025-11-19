@@ -41,6 +41,25 @@ body{
   transition: width .28s ease;
   z-index: 999;
 }
+
+
+#motivoLink {
+  width: 100%;
+  padding: 10px;
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 15px;
+  outline: none;
+  resize: none;
+}
+
+#motivoLinkContainer .form-row {
+  display: flex;
+  flex-direction: column;
+}
+
 .sidebar.collapsed{width:70px;}
 .brand{display:flex;align-items:center;gap:12px;padding-bottom:6px;}
 .brand-logo{width:44px;height:44px;object-fit:cover;border-radius:8px;box-shadow:0 4px 18px rgba(0,0,0,0.6);}
